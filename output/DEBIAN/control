@@ -3,7 +3,7 @@ Priority: optional
 Maintainer: Dario Griffo <dariogriffo@gmail.com>
 Homepage: https://fishshell.com/
 Package: fish
-Version: fish_VERSION-BUILD_VERSION~DIST
+Version: fish_VERSION-BUILD_VERSION~griffo
 Architecture: SUPPORTED_ARCHITECTURES
 Suggests: xsel, python3, man-db
 Description: friendly interactive shell

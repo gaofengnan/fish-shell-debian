@@ -1,4 +1,4 @@
-fish (FULL_VERSION) DIST; urgency=low
+fish (FULL_VERSION) stable; urgency=low
 
   * Repackage upstream fish release as a Debian binary package.
 

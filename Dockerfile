@@ -1,5 +1,3 @@
-ARG DEBIAN_DIST=bookworm
-
 # fish ships no prebuilt man pages, in either the binary or the source tarball,
 # so generate them from doc_src/ with sphinx. Inputs are identical for every
 # dist/arch, so Docker caches this stage across the whole matrix.
@@ -17,7 +15,6 @@ RUN mkdir -p /tmp/src /doc-extra.d \
 
 FROM debian:bookworm
 
-ARG DEBIAN_DIST
 ARG fish_VERSION
 ARG BUILD_VERSION
 ARG FULL_VERSION
@@ -72,7 +69,6 @@ RUN gzip -9 -n -c /tmp/changelog.upstream > /output/usr/share/doc/fish/changelog
 # Debian changelog (substitute placeholders, then gzip)
 COPY output/changelog.Debian /tmp/changelog.Debian
 RUN sed -i "s/FULL_VERSION/$FULL_VERSION/" /tmp/changelog.Debian \
- && sed -i "s/DIST/$DEBIAN_DIST/" /tmp/changelog.Debian \
  && sed -i "s|DATE|$BUILD_DATE|" /tmp/changelog.Debian \
  && gzip -9 -n -c /tmp/changelog.Debian > /output/usr/share/doc/fish/changelog.Debian.gz \
  && chmod 644 /output/usr/share/doc/fish/changelog.Debian.gz \
@@ -85,7 +81,6 @@ COPY output/DEBIAN/postrm /output/DEBIAN/postrm
 RUN chmod 755 /output/DEBIAN/postinst /output/DEBIAN/postrm
 RUN sed -i "s/fish_VERSION/$fish_VERSION/" /output/DEBIAN/control \
  && sed -i "s/BUILD_VERSION/$BUILD_VERSION/" /output/DEBIAN/control \
- && sed -i "s/DIST/$DEBIAN_DIST/" /output/DEBIAN/control \
  && sed -i "s/SUPPORTED_ARCHITECTURES/$ARCH/" /output/DEBIAN/control
 
-RUN dpkg-deb --build /output /fish_${FULL_VERSION}.deb
+RUN dpkg-deb -Zxz --build /output /fish_${FULL_VERSION}.deb
