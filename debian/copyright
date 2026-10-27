@@ -10,6 +10,7 @@ License: GPL-2
 
 Files: debian/*
 Copyright: 2026 Dario Griffo <dariogriffo@gmail.com>
+ 2026 Fengnan Gao <gao.fengnan@gmail.com>
 License: GPL-2
 
 Comment: fish bundles a small amount of code under other licences, as recorded

@@ -1,9 +1,9 @@
 Section: shells
 Priority: optional
-Maintainer: Dario Griffo <dariogriffo@gmail.com>
+Maintainer: Fengnan Gao <gao.fengnan@gmail.com>
 Homepage: https://fishshell.com/
 Package: fish
-Version: fish_VERSION-BUILD_VERSION~griffo
+Version: fish_VERSION-BUILD_VERSION~gaofn
 Architecture: SUPPORTED_ARCHITECTURES
 Suggests: xsel, python3, man-db
 Description: friendly interactive shell

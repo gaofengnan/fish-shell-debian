@@ -2,4 +2,4 @@ fish (FULL_VERSION) stable; urgency=low
 
   * Repackage upstream fish release as a Debian binary package.
 
- -- Dario Griffo <dariogriffo@gmail.com>  DATE
+ -- Fengnan Gao <gao.fengnan@gmail.com>  DATE
